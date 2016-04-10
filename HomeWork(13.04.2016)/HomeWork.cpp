@@ -15,8 +15,8 @@ public:
 
 	void SetDataSides(double fs, double ss)
 	{
-		firstside = fs;
-		secondside = ss;
+		this -> firstside = fs;
+		this -> secondside = ss;
 	}
 	
 	bool IsItSquare(double fs, double ss)
@@ -41,15 +41,25 @@ public:
 		cout << "1) Perimeter = " << Perimeter(firstside, secondside) << endl;
 		cout << "2) Square = " << Square(firstside, secondside) << endl;
 		if (IsItSquare(firstside, secondside))
-			cout << "3) It is Square" << endl;
+			cout << "3) It is a Square" << endl;
 		else
 		{ 
-			cout << "3) It isn't Square" << endl;
+			cout << "3) It isn't a Square" << endl;
 		}
 	}
 
 	void DrawRectangle(double fs, double ss)
 	{
+		if (fs == 1 && ss == 1)
+		{
+			cout << (char)218;
+			cout << (char)191;
+			cout << endl;
+			cout << (char)192;
+			cout << (char)217;
+			cout << endl;
+			return;
+		}
 		cout << (char)218;
 		for (int i = 0; i < fs - 1; i++)
 			cout << (char)196;
@@ -73,7 +83,6 @@ public:
 
 int main(){
 	double a, b;
-	char c;
 	Rectangle sides;
 	cout << "Enter first side of Rectangle:";
 	cin >> a;
@@ -91,3 +100,4 @@ int main(){
 	system("pause");
 	return 0;
 }
+
