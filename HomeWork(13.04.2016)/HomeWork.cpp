@@ -54,7 +54,8 @@ public:
 		sym = symbol;
 	}
 
-	void DrawRectangle(double fs, double ss, char sym)
+	void DrawRectangle(double fs, double ss, char sym) // Number of characters longer than the length of 1
+		//, because the spacing between two characters is equal to 1
 	{
 		for (int i = 0; i < ss + 1; i++)
 		{
@@ -95,7 +96,8 @@ int main(){
 	system("cls");
 	sides.ShowPart();
 	cout<<endl;
-	sides.DrawRectangle(a, b, c);
+	sides.DrawRectangle(a, b, c);// Number of characters longer than the length of 1
+		//, because the spacing between two characters is equal to 1
 	system("pause");
 	return 0;
 }
