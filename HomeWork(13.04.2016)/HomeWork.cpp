@@ -5,7 +5,6 @@ class Rectangle
 {
 private:
 	double firstside, secondside;
-	char sym;
 public:
 
 	void DataValid(double &side)
@@ -49,31 +48,26 @@ public:
 		}
 	}
 
-	void SetDataSymbol(char symbol)
+	void DrawRectangle(double fs, double ss)
 	{
-		sym = symbol;
-	}
-
-	void DrawRectangle(double fs, double ss, char sym) // Number of characters longer than the length of 1
-		//, because the spacing between two characters is equal to 1
-	{
-		for (int i = 0; i < ss + 1; i++)
+		cout << (char)218;
+		for (int i = 0; i < fs - 1; i++)
+			cout << (char)196;
+		cout << (char)191;
+		cout << endl;
+		for (int i = 0; i < fs; i++)
 		{
-			if (i == 0 || i == ss)
-				for (int j = 0; j < fs + 1; j++)
-				{
-				cout << sym;
-				if (j == fs + 1)
-					cout<<endl;
-				}
-			else
-			{
-				cout << sym;
-				cout.width(fs);
-				cout << sym;
-			}
+			cout << (char)179;
+			cout.width(fs);
+			cout << (char)179;
+			i++;
 			cout << endl;
 		}
+		cout << (char)192;
+		for (int i = 0; i < fs - 1; i++)
+			cout << (char)196;
+		cout << (char)217;
+		cout << endl;
 	}
 };
 
@@ -90,14 +84,10 @@ int main(){
 	sides.DataValid(b);
 	sides.SetDataSides(a, b);
 	cout << endl;
-	cout << "Enter the Symbol: ";
-	cin >> c;
-	sides.SetDataSymbol(c);
 	system("cls");
 	sides.ShowPart();
 	cout<<endl;
-	sides.DrawRectangle(a, b, c);// Number of characters longer than the length of 1
-		//, because the spacing between two characters is equal to 1
+	sides.DrawRectangle(a, b);
 	system("pause");
 	return 0;
 }
