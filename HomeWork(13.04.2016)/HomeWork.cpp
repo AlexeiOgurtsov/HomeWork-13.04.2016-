@@ -14,7 +14,7 @@ int main(){
 	cout << endl;
 	system("cls");
 	sides.ShowPart();
-	cout<<endl;
+	cout << endl;
 	sides.DrawRectangle();
 	system("pause");
 	return 0;
