@@ -7,10 +7,16 @@ private:
 	double firstside, secondside;
 public:
 
+	Rectangle()
+	{
+		firstside = 1;
+		secondside = 1;
+	}
+
 	void SetDataSides(double fs, double ss)
 	{
-		if (fs < 0 || fs > 20) fs = 1;
-		if (ss < 0 || ss > 20) fs = 1;
+		if (fs < 0 || fs > 20 || ss < 0 || ss > 20)
+			return;
 		this -> firstside = fs;
 		this -> secondside = ss;
 	}
