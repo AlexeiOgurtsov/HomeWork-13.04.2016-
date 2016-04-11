@@ -7,40 +7,36 @@ private:
 	double firstside, secondside;
 public:
 
-	void DataValid(double &side)
-	{
-		if (side < 0 || side > 20)
-			side = 1;
-	}
-
 	void SetDataSides(double fs, double ss)
 	{
+		if (fs < 0 || fs > 20) fs = 1;
+		if (ss < 0 || ss > 20) fs = 1;
 		this -> firstside = fs;
 		this -> secondside = ss;
 	}
 	
-	bool IsItSquare(double fs, double ss)
+	bool IsItSquare()
 	{
-		if (fs == ss)
+		if (firstside == secondside)
 			return true;
 		return false;
 	}
 
-	double Perimeter(double fs, double ss)
+	double Perimeter()
 	{
-		return 2 * fs + 2 * ss;
+		return 2*firstside + 2*secondside;
 	}
 
-	double Square(double fs, double ss)
+	double Square()
 	{
-		return fs*ss;
+		return firstside*secondside;
 	}
 
 	void ShowPart()
 	{
-		cout << "1) Perimeter = " << Perimeter(firstside, secondside) << endl;
-		cout << "2) Square = " << Square(firstside, secondside) << endl;
-		if (IsItSquare(firstside, secondside))
+		cout << "1) Perimeter = " << Perimeter() << endl;
+		cout << "2) Square = " << Square() << endl;
+		if (IsItSquare())
 			cout << "3) It is a Square" << endl;
 		else
 		{ 
@@ -48,9 +44,9 @@ public:
 		}
 	}
 
-	void DrawRectangle(double fs, double ss)
+	void DrawRectangle()
 	{
-		if (fs == 1 && ss == 1)
+		if (firstside == 1 && secondside == 1)
 		{
 			cout << (char)218;
 			cout << (char)191;
@@ -61,20 +57,20 @@ public:
 			return;
 		}
 		cout << (char)218;
-		for (int i = 0; i < fs - 1; i++)
+		for (int i = 0; i < firstside - 1; i++)
 			cout << (char)196;
 		cout << (char)191;
 		cout << endl;
-		for (int i = 0; i < fs; i++)
+		for (int i = 0; i < firstside; i++)
 		{
 			cout << (char)179;
-			cout.width(fs);
+			cout.width(firstside);
 			cout << (char)179;
 			i++;
 			cout << endl;
 		}
 		cout << (char)192;
-		for (int i = 0; i < fs - 1; i++)
+		for (int i = 0; i < firstside - 1; i++)
 			cout << (char)196;
 		cout << (char)217;
 		cout << endl;
@@ -86,17 +82,15 @@ int main(){
 	Rectangle sides;
 	cout << "Enter first side of Rectangle:";
 	cin >> a;
-	sides.DataValid(a);
 	system("cls");
 	cout << "Enter second side of Rectangle:";
 	cin >> b;
-	sides.DataValid(b);
 	sides.SetDataSides(a, b);
 	cout << endl;
 	system("cls");
 	sides.ShowPart();
 	cout<<endl;
-	sides.DrawRectangle(a, b);
+	sides.DrawRectangle();
 	system("pause");
 	return 0;
 }
